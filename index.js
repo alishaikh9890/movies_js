@@ -1,5 +1,5 @@
  
-let streamtype = JSON.parse(localStorage.getItem("streamtype"));
+let streamtype = JSON.parse(localStorage.getItem("streamtype")) || "movies";
 let filter_array = JSON.parse(localStorage.getItem("filter_array")) || [];
 
 let n=1;
@@ -14,6 +14,8 @@ let e_page = 1;
 let w_genre = `&with_genres=${filter_array.join(',')}`;
 let e_lang = '&with_original_language=ta'
 let api_url = base_url+end_point+api_key+w_genre+e_pages+e_page;
+
+
 
 
 
@@ -50,10 +52,6 @@ function stream(){
 }
 
 // streaming type 
-
-
-
-
 
 
 
@@ -154,13 +152,26 @@ function showGenres(gen){
 
 
 
- let doc = document.getElementById("check")
-doc.addEventListener("change", function(){
-if(this.checked){
-   console.log("checked")
-}
-   console.log(e.target.value)
+//  let doc = document.getElementById("check")
+// doc.addEventListener("change", function(){
+// if(this.checked){
+//    console.log("checked")
+// }
+//    console.log(e.target.value)
  
+// })
+
+
+
+
+let search = document.getElementById("search")
+
+search.addEventListener("keyup", function(e){
+   e.preventDefault();
+let s = e.target.value;
+let search_url = base_url+`discover/movie`+api_key+`&with_text_query=${s}`;
+getMovies(search_url)
+
 })
 
 
