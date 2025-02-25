@@ -1,5 +1,5 @@
  
-let streamtype = JSON.parse(localStorage.getItem("streamtype")) || "movies";
+let streamtype = JSON.parse(localStorage.getItem("streamtype")) || "movie";
 let filter_array = JSON.parse(localStorage.getItem("filter_array")) || [];
 
 let n=1;
