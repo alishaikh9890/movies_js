@@ -2,6 +2,7 @@
 import { getMovies, showMovies } from "./Components/scripts.js";
 import { showType, stream1 } from "./Components/type.js";
 import { changePage, totalPage } from "./Components/pages.js";
+import { addFilterLang, showLang } from "./Components/lang.js";
 
 let all_genres =document.getElementById("genres")
 let all_lang =document.getElementById("languages")
@@ -66,7 +67,7 @@ showGenres(allGenres_data.genres,filter_array, addFilter, all_genres)
 
 const allLang_data = await getMovies(api_lang_list);
 console.log(allLang_data)
-showGenres(allLang_data, lang_arr, addFilter, all_lang)
+showLang(allLang_data, lang_arr, addFilterLang, all_lang)
 
 
 

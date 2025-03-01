@@ -5,7 +5,7 @@ export function showGenres(gen, filter_array, addFilter, inject){
     inject.innerHTML = "";
        gen.map((ele) => {
         inject.innerHTML +=`
-                <button class="btn ${filter_array.includes(ele.iso_639_1 || ele.id) ? `btn-warning` : `btn-outline-warning`} btn-sm m-1 filter_btn" >${ele.english_name || ele.name}</button>
+                <button class="btn ${filter_array.includes(ele.id) ? `btn-warning` : `btn-outline-warning`} btn-sm m-1 filter_btn" >${ele.name}</button>
           `
        });
 
@@ -14,7 +14,7 @@ export function showGenres(gen, filter_array, addFilter, inject){
 
 document.querySelectorAll(".filter_btn").forEach((ele, index) => {
    ele.addEventListener("click", function(){
-     addFilter((gen[index].id || gen[index].iso_639_1), filter_array)
+     addFilter((gen[index].id), filter_array)
    })
 })
  
@@ -41,14 +41,7 @@ document.querySelectorAll(".filter_btn").forEach((ele, index) => {
       filter_array.push(id);
    }
 
-   if(typeof id=='number')
-   {
        localStorage.setItem("filter_array", JSON.stringify(filter_array))
-    }
-    else
-    {
-       localStorage.setItem("lang", JSON.stringify(filter_array))
-       
-    }
+  
        location.reload();
 }
