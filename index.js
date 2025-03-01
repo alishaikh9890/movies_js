@@ -90,13 +90,6 @@ next.onclick = () => changePage(page_no, +1)
 
 
 
-//  function eachMovie(id)
-//  {
-//    localStorage.setItem("movie_id", JSON.stringify(id));
-//    location.href = "movie.html"
-//  }
-
-
 
 let search = document.getElementById("search")
 

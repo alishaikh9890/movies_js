@@ -12,7 +12,7 @@ export function showGenres(gen, filter_array, addFilter, inject){
 
 // console.log(inject.childNodes)
 
-inject.childNodes.forEach((ele, index) => {
+document.querySelectorAll(".filter_btn").forEach((ele, index) => {
    ele.addEventListener("click", function(){
      addFilter((gen[index].id || gen[index].iso_639_1), filter_array)
    })
